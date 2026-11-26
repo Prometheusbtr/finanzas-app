@@ -1,0 +1,30 @@
+/* Import screen and Primeros pasos 5 and 6. Loaded only on those screens; colors come from app.css tokens. */
+.imp-pick { position: relative; margin-top: 14px; }
+.imp-pick input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.imp-pick:focus-within { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.imp-file { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.imp-file h3 { overflow-wrap: anywhere; }
+.imp-file > p { margin: 6px 0 0; }
+.imp-found { font-weight: 600; }
+.imp-ok, .imp-warn, .imp-bad { font-size: 14px; margin: 6px 0 0; }
+.imp-ok { color: var(--ink); }
+.imp-ok::before { content: "✓ "; }
+.imp-warn { color: var(--warn); }
+.imp-bad { color: var(--bad); }
+.imp-counts { font-size: 14px; color: var(--muted); }
+
+.imp-map, .imp-rows { margin-top: 12px; }
+.imp-map > summary, .imp-rows > summary { cursor: pointer; font-size: 14px; font-weight: 600; padding: 6px 0; }
+.imp-rows .row .amt { font-variant-numeric: tabular-nums; }
+
+.imp-rec { gap: 10px; }
+.imp-rec .seg { flex: none; }
+.imp-rec .seg button { padding: 6px 10px; }
+
+.imp-hist .side .btn { min-height: 34px; padding: 4px 12px; font-size: 14px; }
+
+.imp-lim { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.imp-lim .note { margin: 2px 0 10px; }
+.imp-lim .seg button { flex: 1; min-width: 0; }
+.imp-will { margin: 8px 0 0; color: var(--muted); }

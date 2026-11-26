@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Finanzas">
+<meta name="format-detection" content="telephone=no">
+<title>Finanzas</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/app.css">
+<script src="/theme.js"></script>
+<script src="/boot-check.js"></script>
+<script type="module" src="/app.js"></script>
+</head>
+<body>
+<main id="app" aria-live="polite"><div class="skel" aria-hidden="true"><i class="sk-title"></i><i class="sk-eyebrow"></i><i class="sk-hero"></i><i class="sk-bar"></i><i class="sk-row"></i><i class="sk-row"></i><i class="sk-row"></i><i class="sk-row"></i><i class="sk-row"></i></div><p class="sr">Cargando…</p></main>
+
+<nav id="tabs" hidden>
+  <span class="tab-pill" aria-hidden="true"></span>
+  <a href="#/" data-tab="/" data-nav="tab">
+    <svg class="ico" aria-hidden="true" focusable="false"><use href="/icons.svg#i-home"></use></svg>
+    <span data-i18n="home">Inicio</span>
+  </a>
+  <a href="#/movimientos" data-tab="/movimientos" data-nav="tab" aria-label="Movimientos" data-i18n-label="movements">
+    <svg class="ico" aria-hidden="true" focusable="false"><use href="/icons.svg#i-list-details"></use></svg>
+    <span data-i18n="movementsTab">Movs.</span>
+  </a>
+  <a href="#/agregar" data-tab="/agregar" data-nav="tab" class="tab-add" aria-label="Agregar" data-i18n-label="add">
+    <span class="add-btn"><svg class="ico" aria-hidden="true" focusable="false"><use href="/icons.svg#i-plus"></use></svg></span>
+  </a>
+  <a href="#/analisis" data-tab="/analisis" data-nav="tab">
+    <svg class="ico" aria-hidden="true" focusable="false"><use href="/icons.svg#i-chart-bar"></use></svg>
+    <span data-i18n="analysis">Análisis</span>
+  </a>
+  <a href="#/mas" data-tab="/mas" data-nav="tab">
+    <svg class="ico" aria-hidden="true" focusable="false"><use href="/icons.svg#i-dots"></use></svg>
+    <span data-i18n="moreTab">Más</span><b class="badge" id="reviewBadge" hidden></b>
+  </a>
+</nav>
+
+<dialog id="sheet"></dialog>
+<div id="toast" role="status"></div>
+</body>
+</html>

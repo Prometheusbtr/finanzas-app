@@ -1,0 +1,44 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "finanzas",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+  // Static files in public/ are served directly; only /api/* runs the Worker.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "finanzas",
+      // Placeholder for local dev. Replaced with the real id after `wrangler d1 create finanzas`.
+      "database_id": "00000000-0000-4000-8000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  // Passkeys (Face ID) and invite links (Cuentas, Wave 2). The links and WebAuthn's expected origin come from here,
+  // never from the request's Host header. WebAuthn refuses IP addresses, so local dev is http://localhost.
+  "vars": {
+    "APP_ORIGIN": "http://localhost:8788",
+    "RP_ID": "localhost",
+    // Web Push: the public half of the VAPID key pair (scripts/vapid-keys.ts writes it). The private half is the
+    // Worker secret VAPID_PRIVATE_KEY (locally in .dev.vars), never in a file in git.
+    "VAPID_PUBLIC_KEY": ""
+  },
+  // Funciones: the evening alerts, 01:00 UTC = 7 pm in El Salvador (src/lib/alerts.ts DAILY_CRON)
+  "triggers": { "crons": ["0 1 * * *"] },
+  // Privacy: no Cloudflare request logs (they would keep URLs with search words) and no traces.
+  "observability": {
+    "enabled": false,
+    "logs": { "enabled": false, "invocation_logs": false },
+    "traces": { "enabled": false }
+  },
+  "logpush": false,
+  // Only the one address finanzas.<subdomain>.workers.dev; no extra per-version preview addresses.
+  "workers_dev": true,
+  "preview_urls": false,
+  // Wrangler does not send usage data about this project to Cloudflare.
+  "send_metrics": false
+}

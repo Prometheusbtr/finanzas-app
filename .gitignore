@@ -1,0 +1,31 @@
+# Private data: bank emails, statements, ledger, personal rules, logins. Never in git.
+data/
+report/
+*.pdf
+*.xls*
+*.csv
+*.ofx
+*.qfx
+*.eml
+*.sql
+!app/migrations/*.sql
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+
+# Build and tool junk
+node_modules/
+.wrangler/
+__pycache__/
+*.py[cod]
+.DS_Store
+*.log
+*.swp
+*~
+
+# Agent worktrees (Claude Code)
+.claude/
+
+# Importar: local screenshots of the click-through (they show real statement rows).
+app/.shots-importar/
